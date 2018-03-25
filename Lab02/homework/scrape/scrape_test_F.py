@@ -9,15 +9,17 @@ html_content = urlopen(url).read().decode('utf8')
 
 soup = BeautifulSoup(html_content,'html.parser')
 datas=[]
+dict_title= OrderedDict()
 dict_data= OrderedDict()
 
-dict_data =OrderedDict({'Nội dung':None,
-            'Quý 4-2016':None,
-            'Quý 1-2017':None,
-            'Quý 2-2017':None,
-            'Quý 3-2017':None,
-            # 'Tăng trưởng': None,
-            })
+title = soup.find('table', id ='tblGridData')
+list_td_title = title.tr.find_all('td')
+
+for td in list_td_title:
+    dict_title[td.string] = None
+# print(dict_data)
+dict_data = dict_title.copy()
+print (dict_data)
 
 table = soup.find('table', id = 'tableContent')
 list_tr = table.find_all('tr',['r_item', 'r_item_a'])
@@ -29,13 +31,8 @@ for tr in list_tr:
             dict_data[key] = list_td_data[i].string
             break
         i += 1
-    print(dict_data)
+    # print(dict_data)
     datas.append(dict_data)
-    dict_data =OrderedDict({'Nội dung':None,
-                'Quý 4-2016':None,
-                'Quý 1-2017':None,
-                'Quý 2-2017':None,
-                'Quý 3-2017':None,
-                # 'Tăng trưởng': None,
-                })
-pyexcel.save_as(records = datas, dest_file_name= 'VNM_test.xls')
+    for value in dict_data.values():
+        value = None
+pyexcel.save_as(records = datas, dest_file_name= 'VNM_test_F.xls')
