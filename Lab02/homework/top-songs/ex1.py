@@ -10,9 +10,9 @@ html_content = urlopen(url).read().decode('utf8')
 
 soup = BeautifulSoup(html_content,'html.parser')
 
-div_list = soup.find_all('div', 'section-content')
+section = soup.find('section', 'chart-grid')
 
-li_list = div_list[1].find_all('li')
+li_list = section.find_all('li')
 
 
 top_songs =[]
