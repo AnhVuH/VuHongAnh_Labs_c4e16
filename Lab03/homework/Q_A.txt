@@ -1,0 +1,34 @@
+Q:Why should we use functions at all?
+A: Because they allow us to reuse code instead of rewriting
+ and we can break the program into sub-steps, make it easier to understand
+
+Q:How to define/declare a function?
+A:The syntax for a function definition is:
+    def NAME( PARAMETERS ):
+        STATEMENTS
+
+Q:How to call/use a function?
+A: name_of_function(parameters)
+
+Q:What is return, why and how do we use it?
+A:
+- 'return' is a statement to take the result of function
+and return to the caller as the “fruit” of calling this function
+- We use 'return' because we want to use the result of function for next steps
+- To use the function with 'return', we assign the results returned to variables
+
+Q:Do we have to use return in every function?
+A:No, we don't.
+
+Q:What are function arguments/parameters, why and how we use it?
+A:
+- argument: A value provided to a function when the function is called. This value is assigned
+to the corresponding parameter in the function. The argument can be the result of an
+expression which may involve operators, operands and calls to other fruitful functions.
+- parameter: A name used inside a function to refer to the value which was passed to it as an
+argument
+
+- we use parameters to pass input value for function
+
+Q:How to use function from a different file other than our currently working file?
+A:Use 'import' statetment
